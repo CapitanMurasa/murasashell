@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="src/scripts/main.ts"></script>
+    <link rel="stylesheet" href="style.css">
     <title>MurasaShell</title>
 </head>
 <body>
+    <div id="terminal">
     hello and Wellcome to MurasaShell created by capitanmurasa!<br>
     to further access information type:<br><br>
     man aboutme - to get information about me<br>
     man projects - to get information about my projects<br>
     socials - to get my socials<br><br>
 
-    guest>
+    
+        <div id="input-line">
+            <span class="prompt">guest&gt;</span>
+            <span id="typer"></span>
+            <!-- <span id="cursor">█</span> -->
+            <input type="text" id="cmd-input" autocomplete="off" spellcheck="false" autofocus>
+        </div>
+    </div>
 </body>
 </html>
