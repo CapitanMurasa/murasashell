@@ -4,6 +4,12 @@ export const commands: Record<string, CommandFunction> = {
     echo: (args) => {
         return args.join(" ");
     },
+
+    help: () => {
+        return "MurasaShell v1.0<br><br> \
+        clear - clears display<br> \
+        man [manual name] - displays manual pages";
+    },
     
     socials: () => {
         return "GitHub: <a href='https://github.com/capitanmurasa' target='_blank'>@capitanmurasa</a><br> \
