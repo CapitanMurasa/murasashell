@@ -60,10 +60,10 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
       const cmd = commandParts[0].toLowerCase();
       const args = commandParts.slice(1); 
 
-      if (cmd === 'clear') {
-          output.innerHTML = ''; 
-      } 
-    if (cmd === 'man') {
+    if (cmd === 'clear') {
+      output.innerHTML = ''; 
+    } 
+    else if (cmd === 'man') {
         program = 'man';
         inputLine.style.display = 'none';
         
