@@ -6,26 +6,44 @@ const typer = document.getElementById('typer') as HTMLSpanElement;
 const inputLine = document.getElementById('input-line') as HTMLDivElement;
 var program = 'bash';
 
-document.addEventListener('keydown', (event: KeyboardEvent) => {
-    if (event.ctrlKey || event.altKey) return;
-    if (program == 'bash'){
+
+document.addEventListener('click', () => {
+    if (program === 'bash'){
       inputField?.focus();
     }
 });
 
-document.addEventListener('click', () => {
-  console.log(program);
-    if (program == 'bash'){
-      inputField?.focus();
+document.addEventListener('keydown', (event: KeyboardEvent) => {
+    if (event.ctrlKey || event.altKey) return;
+    if (program === 'bash'){
+        inputField?.focus();
+    }
+    if (program === 'man') {
+        if (event.key.toLowerCase() === 'q') {
+            event.preventDefault(); 
+            
+            program = 'bash';
+            output.innerHTML = ''; 
+            
+            if (inputField) inputField.value = '';
+            if (typer) typer.textContent = '';
+            
+
+            inputLine.style.display = 'flex'; 
+   
+            inputField?.focus();
+        }
+        return; 
     }
 });
 
 inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
-  if (program == 'bash'){
+  const target = event.target as HTMLInputElement;
+
+  if (program === 'bash'){
     if (event.key === 'Enter') {
       event.preventDefault(); 
-      
-      const target = event.target as HTMLInputElement;
+    
       const rawInput = target.value.trim();
       
       if (!rawInput) return;
@@ -42,7 +60,7 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
       if (cmd === 'clear') {
           output.innerHTML = ''; 
       } 
-      if (cmd === 'man'){
+      else if (cmd === 'man'){
         program = 'man';
         output.innerHTML = '...your man page content... <br><br> (Press "q" to quit)';
         target.value = '';
@@ -67,8 +85,5 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
       if (typer) typer.textContent = '';
       window.scrollTo(0, document.body.scrollHeight);
     }
-  }
-  if(program == 'man'){
-
   }
 });

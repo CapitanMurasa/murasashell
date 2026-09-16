@@ -1,4 +1,13 @@
 input {
+  border: none;           
+  outline: none;            
+  background: transparent;
+  color: white;
   field-sizing: content;
   min-width: 50px;
+}
+
+body {
+  background-color: black;
+  color: white;
 }
