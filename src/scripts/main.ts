@@ -1,4 +1,7 @@
 import { commands } from './commands';
+import { marked } from 'marked';
+import projectsMD from '../pages/projects.md?raw';
+import aboutmeMD from '../pages/aboutme.md?raw';
 
 const inputField = document.getElementById('cmd-input') as HTMLInputElement;
 const output = document.getElementById('output') as HTMLDivElement;
@@ -60,14 +63,30 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
       if (cmd === 'clear') {
           output.innerHTML = ''; 
       } 
-      else if (cmd === 'man'){
+    if (cmd === 'man') {
         program = 'man';
-        output.innerHTML = '...your man page content... <br><br> (Press "q" to quit)';
-        target.value = '';
-        if (typer) typer.textContent = '';
-
         inputLine.style.display = 'none';
-      }
+        
+        let htmlContent = '';
+        const page = args[0]?.toLowerCase();
+
+        if (page === 'aboutme') {
+            htmlContent = marked.parse(aboutmeMD) as string;
+        } else if (page === 'projects') {
+            htmlContent = marked.parse(projectsMD) as string;
+        } else {
+            htmlContent = `No manual entry for ${page || 'nothing'}`;
+        }
+
+        // Inject the parsed HTML and add the quit instructions
+        output.innerHTML = `
+            <div class="man-page">
+                ${htmlContent}
+            </div>
+            <br>
+            <div class="man-footer">(Press "q" to quit)</div>
+        `;
+    }
       else {
           const responseLine = document.createElement('div');
           responseLine.className = 'line';
