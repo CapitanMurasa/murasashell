@@ -29,3 +29,9 @@ body {
     color: white; /* Terminal green */
     animation: blink 1s step-end infinite;
 }
+
+.man-page img {
+    max-width: 100%; 
+    height: auto;    
+    border-radius: 4px; 
+}
