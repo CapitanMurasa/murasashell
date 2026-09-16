@@ -3,16 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="src/scripts/main.ts"></script>
+    <script type="module" src="/src/scripts/main.ts"></script>
+    <link rel="stylesheet" href="/src/style/style.css">
     <title>MurasaShell</title>
 </head>
 <body>
-    hello and Wellcome to MurasaShell created by capitanmurasa!<br>
-    to further access information type:<br><br>
-    man aboutme - to get information about me<br>
-    man projects - to get information about my projects<br>
-    socials - to get my socials<br><br>
+    <div id="terminal">
+        <div id="output">
+            <div class="line">Hello and Welcome to MurasaShell created by CapitanMurasa!</div>
+            <div class="line">to further access information, type:</div>
+            <div class="line"><br></div>
+            <div class="line">man aboutme - to get information about me</div>
+            <div class="line">man projects - to get information about my projects</div>
+            <div class="line">socials - to get my socials</div>
+            <div class="line"><br></div>
+        </div>
 
-    guest>
+        <div id="input-line">
+            <span class="prompt">guest&gt;</span>
+            <span id="typer"></span>
+            <input type="text" id="cmd-input" autocomplete="off" spellcheck="false" autofocus>
+            <span id="cursor">█</span>
+        </div>
+    </div>
 </body>
 </html>

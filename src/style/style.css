@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+input {
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  border: none;           
+  outline: none;            
+  background: transparent;
+  color: white;
+  caret-color: transparent;
+  field-sizing: content;
+  min-width: 0px;
+}
+
+body {
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  background-color: black;
+  color: white;
+}
+
+
+#cursor {
+    color: white; /* Terminal green */
+    animation: blink 1s step-end infinite;
+}
