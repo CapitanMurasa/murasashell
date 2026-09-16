@@ -1,0 +1,1 @@
+type ManFunction = (args: string[]) => string;
