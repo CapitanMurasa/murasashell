@@ -3,6 +3,7 @@ import { commands } from './commands';
 const inputField = document.getElementById('cmd-input') as HTMLInputElement;
 const output = document.getElementById('output') as HTMLDivElement;
 const typer = document.getElementById('typer') as HTMLSpanElement;
+const inputLine = document.getElementById('input-line') as HTMLDivElement;
 var program = 'bash';
 
 document.addEventListener('keydown', (event: KeyboardEvent) => {
@@ -41,11 +42,13 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
       if (cmd === 'clear') {
           output.innerHTML = ''; 
       } 
-      else if (cmd === 'man'){
+      if (cmd === 'man'){
         program = 'man';
-        output.innerHTML = ''; 
-        typer.innerHTML = '';
-        inputField.innerHTML = '';
+        output.innerHTML = '...your man page content... <br><br> (Press "q" to quit)';
+        target.value = '';
+        if (typer) typer.textContent = '';
+
+        inputLine.style.display = 'none';
       }
       else {
           const responseLine = document.createElement('div');
