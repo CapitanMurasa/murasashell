@@ -8,6 +8,7 @@ export const commands: Record<string, CommandFunction> = {
     help: () => {
         return "MurasaShell v1.0<br><br> \
         clear - clears display<br> \
+        echo [string] - 'echoes' string back<br>\
         man [manual name] - displays manual pages";
     },
     
