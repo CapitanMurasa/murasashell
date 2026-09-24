@@ -9,19 +9,21 @@ i am that guy who likes to code, watch anime, play games (especially deadlock!),
 - Bootstrap framework
 
 **backend:**
+- Java
+- Spring
 - Python
 - Flask 
 - FastAPI
 - SQL (SQLite, Postgresql)
 - NoSQL (MongoDB)
 
-**embedded:**
+**systems & multimedia:**
 - C/C++
 - Qt Framework
 - FFmpeg
 - SDL2
 
-**games:**
+**game development:**
 - Unreal Engine 4
 ### Socials:<br>
 GitHub: <a href='https://github.com/capitanmurasa' target='_blank'>@capitanmurasa</a><br>
