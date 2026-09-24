@@ -7,12 +7,26 @@ const inputField = document.getElementById('cmd-input') as HTMLInputElement;
 const output = document.getElementById('output') as HTMLDivElement;
 const typer = document.getElementById('typer') as HTMLSpanElement;
 const inputLine = document.getElementById('input-line') as HTMLDivElement;
+const footer = document.querySelector<HTMLElement>('.man-footer');
+const container = document.getElementById('man-page');
 var program = 'bash';
 
 
-document.addEventListener('click', () => {
+document.addEventListener('click', (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
     if (program === 'bash'){
       inputField?.focus();
+    }
+
+    if (program === 'man') {
+        if (target.classList.contains('man-footer')){
+            program = 'bash';
+            output.innerHTML = '';
+            if (inputField) inputField.value = '';
+            if (typer) typer.textContent = '';
+            inputLine.style.display = 'flex'; 
+            inputField?.focus();
+        }
     }
 });
 
@@ -78,7 +92,7 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
             htmlContent = `No manual entry for ${page || 'nothing'}`;
         }
 
-        // Inject the parsed HTML and add the quit instructions
+        
         output.innerHTML = `
             <div class="man-page">
                 ${htmlContent}
