@@ -7,8 +7,6 @@ const inputField = document.getElementById('cmd-input') as HTMLInputElement;
 const output = document.getElementById('output') as HTMLDivElement;
 const typer = document.getElementById('typer') as HTMLSpanElement;
 const inputLine = document.getElementById('input-line') as HTMLDivElement;
-const footer = document.querySelector<HTMLElement>('.man-footer');
-const container = document.getElementById('man-page');
 var program = 'bash';
 
 
