@@ -3,6 +3,10 @@ import { marked } from 'marked';
 import projectsMD from '../pages/projects.md?raw';
 import aboutmeMD from '../pages/aboutme.md?raw';
 
+const markdownPages: Record<string, string> = {
+  aboutme: aboutmeMD,
+  projects: projectsMD,
+};
 const inputField = document.getElementById('cmd-input') as HTMLInputElement;
 const output = document.getElementById('output') as HTMLDivElement;
 const typer = document.getElementById('typer') as HTMLSpanElement;
@@ -55,7 +59,7 @@ document.addEventListener('keydown', (event: KeyboardEvent) => {
 inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
   const target = event.target as HTMLInputElement;
 
-  if (program === 'bash'){
+  if (program === 'bash') {
     if (event.key === 'Enter') {
       event.preventDefault(); 
     
@@ -72,25 +76,21 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
       const cmd = commandParts[0].toLowerCase();
       const args = commandParts.slice(1); 
 
-    if (cmd === 'clear') {
-      output.innerHTML = ''; 
-    } 
-    else if (cmd === 'man') {
+      if (cmd === 'clear') {
+        output.innerHTML = ''; 
+      } 
+      else if (cmd === 'man') {
         program = 'man';
         inputLine.style.display = 'none';
-        
-        let htmlContent = '';
+    
+
         const page = args[0]?.toLowerCase();
+        const pageContent = page ? markdownPages[page] : undefined;
 
-        if (page === 'aboutme') {
-            htmlContent = marked.parse(aboutmeMD) as string;
-        } else if (page === 'projects') {
-            htmlContent = marked.parse(projectsMD) as string;
-        } else {
-            htmlContent = `No manual entry for ${page || 'nothing'}`;
-        }
+        const htmlContent = pageContent 
+          ? (marked.parse(pageContent) as string) 
+          : `No manual entry for ${page || 'nothing'}`;
 
-        
         output.innerHTML = `
             <div class="man-page">
                 ${htmlContent}
@@ -98,7 +98,15 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
             <br>
             <div class="man-footer">(Press "q" to quit)</div>
         `;
-    }
+
+
+        window.scrollTo(0, 0);
+
+        target.value = '';
+        if (typer) typer.textContent = '';
+
+        return; 
+      }
       else {
           const responseLine = document.createElement('div');
           responseLine.className = 'line';
@@ -111,7 +119,7 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
           output.appendChild(responseLine);
       }
 
-
+      // This code now only runs for normal commands (not 'man')
       target.value = '';
       if (typer) typer.textContent = '';
       window.scrollTo(0, document.body.scrollHeight);
