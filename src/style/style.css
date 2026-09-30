@@ -35,3 +35,13 @@ body {
     height: auto;    
     border-radius: 4px; 
 }
+
+.ascii-banner {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    line-height: 1.15;
+    white-space: pre;
+    user-select: none;
+    margin: 0 0 1rem 0;
+    overflow-x: auto;
+}
