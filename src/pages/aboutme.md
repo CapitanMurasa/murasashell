@@ -30,6 +30,7 @@ I am that guy who likes to code, watch anime, play games (especially deadlock!),
 **game development:**
 - Unreal Engine 4
 ### Socials:<br>
+Email: kasen@capitanmurasa.dev<br>
 GitHub: <a href='https://github.com/capitanmurasa' target='_blank'>@capitanmurasa</a><br>
 X(Twitter): <a href='https://x.com/exedist1' target='_blank' >@exedist1</a><br>
 Telegram (Work): <a href='https://t.me/MurasaAlt08' target='_blank' >@MurasaAlt08</a><br>
