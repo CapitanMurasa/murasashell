@@ -1,6 +1,7 @@
 # My projects
 ## C++ Projects
 ### Perfect Audio Works
+[Project's site](https://paw.capitanmurasa.dev/)<br>
 [Github Repository](https://github.com/CapitanMurasa/PerfectAudioWorks)<br>
 **Status:** <font color="yellow">development paused</font><br>
 **Uses:** C/C++, Qt framework, Portaudio, libsndfile, FFmpeg, SQLite, Python, TagLib<br>
