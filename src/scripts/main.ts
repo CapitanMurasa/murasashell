@@ -56,7 +56,7 @@ document.addEventListener('keydown', (event: KeyboardEvent) => {
     }
 });
 
-inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
+inputField?.addEventListener('keydown', async (event: KeyboardEvent) => {
   const target = event.target as HTMLInputElement;
 
   if (program === 'bash') {
@@ -69,7 +69,7 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
 
       const userLine = document.createElement('div');
       userLine.className = 'line';
-      userLine.innerHTML = `guest> ${rawInput}`;
+      userLine.textContent = `guest> ${rawInput}`;
       output.appendChild(userLine);
 
       const commandParts = rawInput.split(/\s+/); 
@@ -112,7 +112,7 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
           responseLine.className = 'line';
 
           if (commands[cmd]) {
-              responseLine.innerHTML = commands[cmd](args);
+              responseLine.textContent = await commands[cmd](args);
           } else {
               responseLine.textContent = `bash: ${cmd}: command not found`;
           }
