@@ -119,7 +119,7 @@ inputField?.addEventListener('keydown', (event: KeyboardEvent) => {
           output.appendChild(responseLine);
       }
 
-      // This code now only runs for normal commands (not 'man')
+
       target.value = '';
       if (typer) typer.textContent = '';
       window.scrollTo(0, document.body.scrollHeight);
